@@ -1,5 +1,6 @@
 import { Sidebar } from '@/components/layout/sidebar'
 import { Header } from '@/components/layout/header'
+import { MobileNav } from '@/components/layout/mobile-nav'
 import { Toaster } from '@/components/ui/sonner'
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -12,6 +13,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           {children}
         </main>
       </div>
+      <MobileNav />
       <Toaster richColors position="top-right" />
     </div>
   )
