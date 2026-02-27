@@ -18,9 +18,27 @@
 2. Name: `receipts`
 3. Public: true (for receipt image URLs)
 
+## Deploy Edge Functions
+
+Install Supabase CLI, then:
+
+```bash
+supabase login
+supabase link --project-ref YOUR_PROJECT_REF
+
+# Set secrets for edge functions
+supabase secrets set RESEND_API_KEY=your_key
+supabase secrets set RESEND_FROM_EMAIL=noreply@yourdomain.com
+supabase secrets set NEXT_PUBLIC_APP_URL=https://your-app.vercel.app
+
+# Deploy functions
+supabase functions deploy bill-reminders
+supabase functions deploy monthly-report
+```
+
 ## Cron Jobs (after Edge Functions deployed)
 
-Enable pg_cron extension in Database → Extensions, then run:
+Enable **pg_cron** AND **pg_net** extensions in Database → Extensions, then run:
 
 ```sql
 select cron.schedule(
