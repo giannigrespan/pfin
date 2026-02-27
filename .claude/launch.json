@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "PFin Dev Server",
-      "runtimeExecutable": "npm.cmd",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "npm run dev"],
       "port": 3000
     }
   ]
